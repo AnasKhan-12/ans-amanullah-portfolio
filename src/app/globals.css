@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050816;
+  --foreground: #f3f3f3;
+  --surface: #151030;
+  --surface-2: #100d25;
+  --border: rgba(255, 255, 255, 0.07);
+
+  --primary: #050816;
+  --primary-light: #ffffff;
+  --primary-dark: #090325;
+  --primary-glow: rgba(145, 94, 255, 0.15);
+  --primary-glow-strong: rgba(145, 94, 255, 0.25);
+
+  --text-muted: #aaa6c3;
+  --text-subtle: rgba(170, 166, 195, 0.7);
+
+  --accent: #915eff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Selection */
+::selection {
+  background: rgba(200, 204, 214, 0.15);
+  color: var(--primary-light);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid rgba(200, 204, 214, 0.5);
+  outline-offset: 2px;
+}
+
+section {
+  position: relative;
+}

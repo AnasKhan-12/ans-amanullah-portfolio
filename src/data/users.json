@@ -1,0 +1,106 @@
+{
+  "profile": {
+    "name": "Ans Amanullah",
+    "role": "Freelance Professional | Portfolio",
+    "image": "/anas.jpg",
+    "hero": {
+      "title": "Crafting Digital Excellence With Innovation",
+      "subtitle": "Transforming visionary concepts into extraordinary digital experiences through cutting-edge AI technology and masterful craftsmanship.",
+      "stats": [
+        { "value": "50+", "label": "Projects Delivered" },
+        { "value": "30+", "label": "Global Clients" },
+        { "value": "5+", "label": "Years Excellence" }
+      ]
+    },
+    "about": {
+      "heading": "Professional Freelancer & Creative Visionary",
+      "description": [
+        "With years of expertise in the digital landscape, I specialize in crafting exceptional websites and applications that transcend mere aesthetics to deliver transformative user experiences.",
+        "My passion lies in bridging the gap between innovative concepts and tangible reality through pristine code, avant-garde design, and meticulous attention to every detail. I believe in cultivating enduring partnerships with clients by consistently exceeding expectations and delivering unparalleled quality."
+      ],
+      "stats": [
+        { "value": "50+", "label": "Projects Completed" },
+        { "value": "30+", "label": "Happy Clients" },
+        { "value": "5+", "label": "Years Experience" }
+      ]
+    }
+  },
+  "services": [
+    {
+      "title": "Web Development",
+      "description": "Building responsive, blazing-fast, and infinitely scalable websites using cutting-edge technologies and industry best practices."
+    },
+    {
+      "title": "UI/UX Design",
+      "description": "Crafting stunning and intuitive user interfaces that deliver seamless, delightful experiences across all touchpoints."
+    },
+    {
+      "title": "Responsive Design",
+      "description": "Ensuring your digital presence looks absolutely flawless on every device, from smartphones to ultra-wide displays."
+    },
+    {
+      "title": "SEO Optimization",
+      "description": "Optimizing your digital assets for maximum search engine visibility and driving sustainable organic traffic growth."
+    },
+    {
+      "title": "E-Commerce Solutions",
+      "description": "Developing powerful online stores with secure payment integration and sophisticated inventory management systems."
+    },
+    {
+      "title": "Maintenance & Support",
+      "description": "Providing comprehensive ongoing support and maintenance to keep your digital assets running smoothly and securely."
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "E-Commerce Platform",
+      "category": "Web Development"
+    },
+    {
+      "title": "Business Dashboard",
+      "category": "UI/UX Design"
+    },
+    {
+      "title": "Mobile App Design",
+      "category": "Mobile Design"
+    },
+    {
+      "title": "Corporate Website",
+      "category": "Web Development"
+    },
+    {
+      "title": "Portfolio Website",
+      "category": "Web Design"
+    },
+    {
+      "title": "Landing Page",
+      "category": "Web Development"
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "John Doe",
+      "position": "CEO, Tech Company",
+      "text": "Exceptional work! The website exceeded our expectations. Professional, responsive, and delivered on time. Highly recommended!"
+    },
+    {
+      "author": "Jane Smith",
+      "position": "Product Manager, Startup",
+      "text": "Amazing designer with great attention to detail. The UI/UX work was outstanding and our users love the new interface!"
+    },
+    {
+      "author": "Mike Johnson",
+      "position": "Founder, Digital Agency",
+      "text": "Very professional and skilled developer. Great communication throughout the project. Will definitely work together again!"
+    }
+  ],
+  "contact": {
+    "email": "your.email@example.com",
+    "phone": "+1 (234) 567-890",
+    "location": "Your City, Country",
+    "socials": [
+      { "name": "GitHub",   "href": "https://github.com/AnasKhan-12",            "active": true },
+      { "name": "LinkedIn", "href": "https://www.linkedin.com/in/ans-amanullah", "active": true }
+    ]
+  }
+}
