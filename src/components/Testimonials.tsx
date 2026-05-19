@@ -9,7 +9,10 @@ const Testimonials = () => {
   const { testimonials } = userData;
 
   return (
-    <section id="testimonials" className="py-10">
+    <section
+      id="testimonials"
+      className="min-h-screen flex flex-col pb-16 scroll-mt-24"
+    >
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">

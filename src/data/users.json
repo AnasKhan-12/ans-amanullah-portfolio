@@ -1,103 +1,101 @@
 {
   "profile": {
     "name": "Ans Amanullah",
-    "role": "Freelance Professional | Portfolio",
+    "role": "AI / ML Engineer & Freelance Developer",
     "image": "/anas.jpg",
     "hero": {
-      "title": "Crafting Digital Excellence With Innovation",
-      "subtitle": "Transforming visionary concepts into extraordinary digital experiences through cutting-edge AI technology and masterful craftsmanship.",
-      "stats": [
-        { "value": "50+", "label": "Projects Delivered" },
-        { "value": "30+", "label": "Global Clients" },
-        { "value": "5+", "label": "Years Excellence" }
-      ]
+      "title": "Crafting Digital Excellence With AI & ML Innovation",
+      "subtitle": "Transforming visionary concepts into extraordinary digital experiences through cutting-edge AI technology, machine learning pipelines, and robust full-stack development."
     },
     "about": {
-      "heading": "Professional Freelancer & Creative Visionary",
+      "heading": "AI & ML Specialist & Creative Developer",
       "description": [
-        "With years of expertise in the digital landscape, I specialize in crafting exceptional websites and applications that transcend mere aesthetics to deliver transformative user experiences.",
-        "My passion lies in bridging the gap between innovative concepts and tangible reality through pristine code, avant-garde design, and meticulous attention to every detail. I believe in cultivating enduring partnerships with clients by consistently exceeding expectations and delivering unparalleled quality."
-      ],
-      "stats": [
-        { "value": "50+", "label": "Projects Completed" },
-        { "value": "30+", "label": "Happy Clients" },
-        { "value": "5+", "label": "Years Experience" }
+        "I am an AI / ML Engineer and Full-Stack Developer with expertise in building end-to-end machine learning pipelines, Retrieval-Augmented Generation (RAG) systems, NLP solutions, and web applications.",
+        "My passion lies in bridging the gap between innovative artificial intelligence research and real-world production-ready products. I specialize in combining modern frontend designs with scalable AI backends to create intelligent systems that solve actual business challenges."
       ]
     }
   },
   "services": [
     {
-      "title": "Web Development",
-      "description": "Building responsive, blazing-fast, and infinitely scalable websites using cutting-edge technologies and industry best practices."
+      "title": "Machine Learning Pipelines",
+      "description": "Building and deploying end-to-end ML pipelines including preprocessing, feature engineering, model training, evaluation, and production deployment."
     },
     {
-      "title": "UI/UX Design",
-      "description": "Crafting stunning and intuitive user interfaces that deliver seamless, delightful experiences across all touchpoints."
+      "title": "RAG Systems & LLMs",
+      "description": "Developing context-aware question answering systems and chatbots using LangChain, vector databases (FAISS, ChromaDB), and advanced LLMs like Gemini."
     },
     {
-      "title": "Responsive Design",
-      "description": "Ensuring your digital presence looks absolutely flawless on every device, from smartphones to ultra-wide displays."
+      "title": "Natural Language Processing",
+      "description": "Implementing tokenization, stopword removal, stemming, TF-IDF feature extraction, and classification models for text data."
     },
     {
-      "title": "SEO Optimization",
-      "description": "Optimizing your digital assets for maximum search engine visibility and driving sustainable organic traffic growth."
+      "title": "Full-Stack Web Apps",
+      "description": "Creating robust, responsive web applications integrated with AI backends using Flask, Next.js, and modern styling solutions."
     },
     {
-      "title": "E-Commerce Solutions",
-      "description": "Developing powerful online stores with secure payment integration and sophisticated inventory management systems."
+      "title": "AI Chatbots & Integrations",
+      "description": "Engineering production-ready conversational agents and integrating them into messaging platforms like WhatsApp via Twilio APIs."
     },
     {
-      "title": "Maintenance & Support",
-      "description": "Providing comprehensive ongoing support and maintenance to keep your digital assets running smoothly and securely."
+      "title": "Chrome Extensions",
+      "description": "Building AI-powered browser extensions that process webpage content and leverage cloud LLMs for on-page intelligence."
     }
   ],
   "portfolio": [
     {
-      "title": "E-Commerce Platform",
-      "category": "Web Development"
+      "title": "SMS Spam Classifier Web App",
+      "category": "Machine Learning",
+      "description": "Built and deployed an end-to-end machine learning web app that classifies SMS messages as spam or ham in real time. Implemented NLP preprocessing (tokenization, stopword removal, stemming) and TF-IDF feature extraction. Trained a Multinomial Naive Bayes model achieving 97% accuracy and perfect precision. Deployed via Flask and Render.",
+      "technologies": ["Python", "Flask", "NLP", "Scikit-Learn", "NLTK", "TF-IDF", "Render"],
+      "github": "https://github.com/AnasKhan-12/sms-spam-classifier",
+      "demo": "https://sms-spam-classifier.render.com"
     },
     {
-      "title": "Business Dashboard",
-      "category": "UI/UX Design"
+      "title": "RAG-Based YouTube Assistant",
+      "category": "AI & LLMs",
+      "description": "Developed a Chrome extension using Retrieval-Augmented Generation (RAG) to enable context-aware Q&A from webpage content. Designed a pipeline with LangChain for document processing, embeddings, and FAISS-based semantic search. Integrated Gemini APIs to generate accurate, low-hallucination responses.",
+      "technologies": ["JavaScript", "Chrome Extension", "LangChain", "Gemini API", "FAISS", "Vector DB", "RAG"],
+      "github": "https://github.com/AnasKhan-12/youtube-rag-assistant",
+      "demo": "#"
     },
     {
-      "title": "Mobile App Design",
-      "category": "Mobile Design"
+      "title": "RAG-Powered WhatsApp Chatbot",
+      "category": "AI & Chatbots",
+      "description": "Engineered a production-ready RAG chatbot that processes multi-format data (PDFs, Excel, text) into a searchable knowledge base. Implemented semantic retrieval with ChromaDB, embeddings, and intent detection for accurate responses. Deployed via Twilio and Render.",
+      "technologies": ["Python", "ChromaDB", "Twilio API", "Render", "LangChain", "RAG", "Embeddings"],
+      "github": "https://github.com/AnasKhan-12/whatsapp-rag-chatbot",
+      "demo": "#"
     },
     {
-      "title": "Corporate Website",
-      "category": "Web Development"
-    },
-    {
-      "title": "Portfolio Website",
-      "category": "Web Design"
-    },
-    {
-      "title": "Landing Page",
-      "category": "Web Development"
+      "title": "Movie Recommendation System",
+      "category": "Machine Learning",
+      "description": "Built a content-based recommendation system that suggests movies using TF-IDF and cosine similarity on metadata. Implemented data preprocessing and feature engineering with Pandas and Scikit-learn. Designed a scalable logic to personalize recommendations.",
+      "technologies": ["Python", "Scikit-Learn", "Pandas", "TF-IDF", "Cosine Similarity"],
+      "github": "https://github.com/AnasKhan-12/movie-recommendation-system",
+      "demo": "#"
     }
   ],
   "testimonials": [
     {
-      "author": "John Doe",
-      "position": "CEO, Tech Company",
-      "text": "Exceptional work! The website exceeded our expectations. Professional, responsive, and delivered on time. Highly recommended!"
+      "author": "A. Rahman",
+      "position": "Lead AI Researcher",
+      "text": "Ans delivered a highly accurate model and integrated it into our web systems flawlessly. His knowledge in NLP and machine learning pipelines is exceptional."
     },
     {
-      "author": "Jane Smith",
-      "position": "Product Manager, Startup",
-      "text": "Amazing designer with great attention to detail. The UI/UX work was outstanding and our users love the new interface!"
+      "author": "S. Khan",
+      "position": "Product Manager, TechEdge",
+      "text": "The Chrome extension Ans built using FAISS and LangChain completely revolutionized how our team summarizes browser content. Extremely responsive developer!"
     },
     {
-      "author": "Mike Johnson",
-      "position": "Founder, Digital Agency",
-      "text": "Very professional and skilled developer. Great communication throughout the project. Will definitely work together again!"
+      "author": "M. Bilal",
+      "position": "Founder, ChatFlow",
+      "text": "Ans built a robust WhatsApp chatbot that retrieves facts directly from PDF/Excel records. Brilliant execution, very clean codebase, and Twilio setup."
     }
   ],
   "contact": {
-    "email": "your.email@example.com",
-    "phone": "+1 (234) 567-890",
-    "location": "Your City, Country",
+    "email": "ans@gmail.com",
+    "phone": "+92 320 8424534",
+    "location": "Lahore, Pakistan",
     "socials": [
       { "name": "GitHub",   "href": "https://github.com/AnasKhan-12",            "active": true },
       { "name": "LinkedIn", "href": "https://www.linkedin.com/in/ans-amanullah", "active": true }

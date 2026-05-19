@@ -9,7 +9,10 @@ const About = () => {
   const { about } = userData.profile;
 
   return (
-    <section id="about" className="py-10">
+    <section
+      id="about"
+      className="min-h-screen flex flex-col py-24 scroll-mt-24"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -87,29 +90,6 @@ const About = () => {
               />
               Download CV
             </button>
-
-            {/* Stats */}
-            <div
-              className="grid grid-cols-3 gap-6 pt-6 w-full max-w-3xl mx-auto"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
-            >
-              {about.stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center transition-transform hover:-translate-y-1 duration-300"
-                >
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 tracking-tight">
-                    {stat.value}
-                  </h3>
-                  <p
-                    className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-center"
-                    style={{ color: "var(--text-subtle)" }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </motion.div>
       </div>
