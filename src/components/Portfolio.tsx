@@ -6,10 +6,9 @@ import userData from "@/data/users.json";
 import { ExternalLink, Github } from "lucide-react";
 
 const categoryGradients: { [key: string]: string } = {
-  "Web Development": "linear-gradient(135deg, #0f1923 0%, #162030 100%)",
-  "UI/UX Design": "linear-gradient(135deg, #120f23 0%, #1d1730 100%)",
-  "Mobile Design": "linear-gradient(135deg, #0f1f1f 0%, #122828 100%)",
-  "Web Design": "linear-gradient(135deg, #1a0f14 0%, #251520 100%)",
+  "Machine Learning": "linear-gradient(135deg, #0b1c16 0%, #123324 100%)",
+  "AI & LLMs": "linear-gradient(135deg, #150f24 0%, #24132b 100%)",
+  "AI & Chatbots": "linear-gradient(135deg, #081628 0%, #10263f 100%)",
 };
 
 const Portfolio = () => {
@@ -27,7 +26,10 @@ const Portfolio = () => {
       : portfolio.filter((item) => item.category === filter);
 
   return (
-    <section id="portfolio" className="py-10">
+    <section
+      id="portfolio"
+      className="min-h-screen flex flex-col pb-24 scroll-mt-24"
+    >
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-14">
@@ -61,15 +63,15 @@ const Portfolio = () => {
               style={
                 filter === category
                   ? {
-                    background: "rgba(255,255,255,0.1)",
-                    color: "white",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                  }
+                      background: "rgba(255,255,255,0.1)",
+                      color: "white",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                    }
                   : {
-                    background: "transparent",
-                    color: "var(--text-muted)",
-                    border: "1px solid rgba(255,255,255,0.07)",
-                  }
+                      background: "transparent",
+                      color: "var(--text-muted)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                    }
               }
             >
               {category}
@@ -78,12 +80,9 @@ const Portfolio = () => {
         </div>
 
         {/* Projects Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2  gap-5">
           <AnimatePresence>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <motion.div
                 key={`${project.title}-${project.category}`}
                 layout
@@ -126,32 +125,48 @@ const Portfolio = () => {
 
                 {/* Hover overlay */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-6 text-center"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-5 text-center"
                   style={{
-                    background: "rgba(10,10,15,0.9)",
+                    background: "rgba(10,10,15,0.93)",
                     backdropFilter: "blur(8px)",
                   }}
                 >
-                  <h3 className="text-base font-semibold text-white mb-1.5 translate-y-3 group-hover:translate-y-0 transition-transform duration-250">
+                  <h3 className="text-sm md:text-base font-bold text-white mb-2 translate-y-3 group-hover:translate-y-0 transition-transform duration-250">
                     {project.title}
                   </h3>
-                  <span
-                    className="text-xs mb-6 translate-y-3 group-hover:translate-y-0 transition-transform duration-250"
-                    style={{
-                      color: "var(--text-muted)",
-                      transitionDelay: "30ms",
-                    }}
+
+                  {/* Project description */}
+                  <p
+                    className="text-[11px] md:text-xs text-white/70 mb-4 px-2 line-clamp-4 leading-relaxed translate-y-3 group-hover:translate-y-0 transition-transform duration-250"
+                    style={{ transitionDelay: "20ms" }}
                   >
-                    {project.category}
-                  </span>
+                    {project.description}
+                  </p>
+
+                  {/* Technologies tags */}
+                  <div
+                    className="flex flex-wrap justify-center gap-1.5 mb-5 max-w-full px-2 translate-y-3 group-hover:translate-y-0 transition-transform duration-250"
+                    style={{ transitionDelay: "40ms" }}
+                  >
+                    {project.technologies?.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-[9px] font-medium px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/50"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
                   <div
                     className="flex gap-2.5 translate-y-3 group-hover:translate-y-0 transition-transform duration-250"
                     style={{ transitionDelay: "60ms" }}
                   >
-                    <button
-                      type="button"
-                      className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium transition-all duration-150 hover:bg-white/10"
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 hover:bg-white/10"
                       style={{
                         background: "rgba(255,255,255,0.06)",
                         color: "white",
@@ -159,17 +174,21 @@ const Portfolio = () => {
                       }}
                     >
                       <Github size={13} /> Code
-                    </button>
-                    <button
-                      type="button"
-                      className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium text-white transition-all duration-150 hover:bg-white/15"
-                      style={{
-                        background: "rgba(255,255,255,0.1)",
-                        border: "1px solid rgba(255,255,255,0.15)",
-                      }}
-                    >
-                      <ExternalLink size={13} /> Demo
-                    </button>
+                    </a>
+                    {project.demo && project.demo !== "#" && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition-all duration-150 hover:bg-white/15"
+                        style={{
+                          background: "rgba(255,255,255,0.1)",
+                          border: "1px solid rgba(255,255,255,0.15)",
+                        }}
+                      >
+                        <ExternalLink size={13} /> Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>

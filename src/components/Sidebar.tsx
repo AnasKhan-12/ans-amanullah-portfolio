@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -19,7 +19,49 @@ import Image from "next/image";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const { profile } = userData;
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px",
+      threshold: 0.1,
+    };
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      observerOptions,
+    );
+
+    const sections = [
+      "home",
+      "about",
+      "services",
+      "portfolio",
+      "testimonials",
+      "contact",
+    ];
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },
@@ -53,7 +95,7 @@ const Sidebar = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 p-2.5 rounded-xl md:hidden text-white border border-white/10"
+        className="fixed top-4 right-4 z-50 p-2.5 rounded-xl lg:hidden text-white border border-white/10"
         style={{ background: "var(--surface)" }}
         aria-label="Toggle Menu"
       >
@@ -63,7 +105,7 @@ const Sidebar = () => {
       {/* Sidebar Container */}
       <aside
         className={clsx(
-          "fixed inset-y-0 left-0 z-40 w-64 transition-transform duration-300 ease-in-out md:translate-x-0 border-r border-white/5 flex flex-col items-center pt-4",
+          "fixed inset-y-0 left-0 z-40 w-64 transition-transform duration-300 ease-in-out lg:translate-x-0 border-r border-white/5 flex flex-col items-center pt-4",
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}
         style={{
@@ -86,7 +128,10 @@ const Sidebar = () => {
                   width={200}
                   height={200}
                   className="w-full h-full object-cover"
-                  style={{ transform: "scale(1.4) translateY(8%)", objectPosition: "center 20%" }}
+                  style={{
+                    transform: "scale(1.4) translateY(8%)",
+                    objectPosition: "center 20%",
+                  }}
                   onError={(e) => {
                     const target = e.currentTarget as HTMLImageElement;
                     target.style.display = "none";
@@ -146,28 +191,51 @@ const Sidebar = () => {
           <nav className="flex-1 ">
             <ul className="space-y-1">
               {navItems.map((item) => {
+                const targetId =
+                  item.href === "/" ? "home" : item.href.substring(1);
+                const isActive = activeSection === targetId;
+
                 return (
                   <li key={item.name}>
                     <Link
                       href={item.href}
                       onClick={(e) => handleScroll(e, item.href)}
-                      className="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-white/5 text-secondary hover:text-white"
+                      className={clsx(
+                        "group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200",
+                        isActive
+                          ? "bg-white/10 text-white"
+                          : "text-white/60 hover:text-white hover:bg-white/5",
+                      )}
                     >
                       <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-110"
+                        className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200"
                         style={{
-                          background: "var(--surface)",
+                          background: isActive
+                            ? "var(--accent)"
+                            : "var(--surface)",
                         }}
                       >
                         <item.icon
                           size={15}
-                          className="transition-colors duration-200 group-hover:text-accent"
+                          className={clsx(
+                            "transition-colors duration-200",
+                            isActive
+                              ? "text-white"
+                              : "text-white/60 group-hover:text-accent",
+                          )}
                         />
                       </div>
                       <span className="text-sm font-medium tracking-wide transition-colors duration-200">
                         {item.name}
                       </span>
-                      <span className="ml-auto w-1.5 h-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-accent" />
+                      <span
+                        className={clsx(
+                          "ml-auto w-1.5 h-1.5 rounded-full bg-accent transition-opacity duration-200",
+                          isActive
+                            ? "opacity-100"
+                            : "opacity-0 group-hover:opacity-100",
+                        )}
+                      />
                     </Link>
                   </li>
                 );
@@ -198,7 +266,7 @@ const Sidebar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 z-30 md:hidden backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 z-30 lg:hidden backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
         )}

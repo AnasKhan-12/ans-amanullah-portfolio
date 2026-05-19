@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[95vh] flex items-center pt-4 pb-20"
+      className="relative min-h-screen flex items-center pt-10 pb-10 scroll-mt-24"
     >
       <div className=" w-full px-4">
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 pt-2 w-full">
@@ -65,7 +65,7 @@ const Hero = () => {
               className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-[1.1] tracking-tight text-white"
               style={{ fontFamily: "var(--font-outfit), sans-serif" }}
             >
-              Hi, I'm <span className="text-accent">Ans</span>
+              Hi, I&apos;m <span className="text-accent">Ans</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -108,27 +108,6 @@ const Hero = () => {
                 Contact Me
               </Link>
             </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-3 gap-6 pt-8"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-            >
-              {hero.stats.map((stat, index) => (
-                <div key={index}>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">
-                    {stat.value}
-                  </h3>
-                  <p
-                    className="text-xs uppercase tracking-wider font-medium"
-                    style={{ color: "var(--text-subtle)" }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Right: Profile Image */}
@@ -156,7 +135,10 @@ const Hero = () => {
                   alt={userData.profile.name}
                   fill
                   className="object-cover"
-                  style={{ transform: "scale(1.35)", objectPosition: "center 15%" }}
+                  style={{
+                    transform: "scale(1.35)",
+                    objectPosition: "center 15%",
+                  }}
                   priority
                 />
                 {/* Gradient overlay at bottom */}
@@ -170,7 +152,7 @@ const Hero = () => {
               </div>
 
               {/* Floating badge — Available */}
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{
                   duration: 3,
@@ -189,10 +171,10 @@ const Hero = () => {
                     Available for hire
                   </span>
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Floating badge — Experience */}
-              <motion.div
+              {/* <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{
                   duration: 4,
@@ -212,7 +194,7 @@ const Hero = () => {
                 >
                   5+ Years Experience
                 </p>
-              </motion.div>
+              </motion.div> */}
             </div>
           </motion.div>
         </div>

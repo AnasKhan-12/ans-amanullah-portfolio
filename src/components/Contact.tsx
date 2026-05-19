@@ -40,7 +40,10 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-10">
+    <section
+      id="contact"
+      className="min-h-screen flex flex-col pb-16 scroll-mt-24"
+    >
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">
