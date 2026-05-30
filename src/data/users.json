@@ -43,6 +43,14 @@
   ],
   "portfolio": [
     {
+      "title": "Whatsapp Chatbot for Restaurant",
+      "category": "AI & Chatbots",
+      "description": "An intelligent WhatsApp assistant for Spice & Ember restaurant that answers customer queries about the menu, hours, reservations, and specials in real time. Built on a RAG pipeline using LangChain and Google Gemini, the bot retrieves answers from actual restaurant documents rather than making things up. Integrated directly with WhatsApp via Meta Cloud API so customers get instant replies without any app downloads or forms.",
+      "technologies": ["Python", "LangChain", "Google Gemini", "Meta Cloud API", "RAG"],
+      "github": "#",
+      "demo": "#"
+    },
+    {
       "title": "SMS Spam Classifier Web App",
       "category": "Machine Learning",
       "description": "Built and deployed an end-to-end machine learning web app that classifies SMS messages as spam or ham in real time. Implemented NLP preprocessing (tokenization, stopword removal, stemming) and TF-IDF feature extraction. Trained a Multinomial Naive Bayes model achieving 97% accuracy and perfect precision. Deployed via Flask and Render.",
