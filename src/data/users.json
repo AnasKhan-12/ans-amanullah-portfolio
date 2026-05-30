@@ -2,15 +2,19 @@
   "profile": {
     "name": "Ans Amanullah",
     "role": "AI / ML Engineer & Freelance Developer",
+    "role": "AI / ML Engineer & Freelance Developer",
     "image": "/anas.jpg",
     "hero": {
       "title": "Crafting Digital Excellence With AI & ML Innovation",
+      "subtitle": "Transforming visionary concepts into extraordinary digital experiences through cutting-edge AI technology, machine learning pipelines, and robust full-stack development.""title": "Crafting Digital Excellence With AI & ML Innovation",
       "subtitle": "Transforming visionary concepts into extraordinary digital experiences through cutting-edge AI technology, machine learning pipelines, and robust full-stack development."
     },
     "about": {
       "heading": "AI & ML Specialist & Creative Developer",
+      "heading": "AI & ML Specialist & Creative Developer",
       "description": [
         "I am an AI / ML Engineer and Full-Stack Developer with expertise in building end-to-end machine learning pipelines, Retrieval-Augmented Generation (RAG) systems, NLP solutions, and web applications.",
+        "My passion lies in bridging the gap between innovative artificial intelligence research and real-world production-ready products. I specialize in combining modern frontend designs with scalable AI backends to create intelligent systems that solve actual business challenges.""I am an AI / ML Engineer and Full-Stack Developer with expertise in building end-to-end machine learning pipelines, Retrieval-Augmented Generation (RAG) systems, NLP solutions, and web applications.",
         "My passion lies in bridging the gap between innovative artificial intelligence research and real-world production-ready products. I specialize in combining modern frontend designs with scalable AI backends to create intelligent systems that solve actual business challenges."
       ]
     }
@@ -18,26 +22,32 @@
   "services": [
     {
       "title": "Machine Learning Pipelines",
+      "description": "Building and deploying end-to-end ML pipelines including preprocessing, feature engineering, model training, evaluation, and production deployment.""title": "Machine Learning Pipelines",
       "description": "Building and deploying end-to-end ML pipelines including preprocessing, feature engineering, model training, evaluation, and production deployment."
     },
     {
       "title": "RAG Systems & LLMs",
+      "description": "Developing context-aware question answering systems and chatbots using LangChain, vector databases (FAISS, ChromaDB), and advanced LLMs like Gemini.""title": "RAG Systems & LLMs",
       "description": "Developing context-aware question answering systems and chatbots using LangChain, vector databases (FAISS, ChromaDB), and advanced LLMs like Gemini."
     },
     {
       "title": "Natural Language Processing",
+      "description": "Implementing tokenization, stopword removal, stemming, TF-IDF feature extraction, and classification models for text data.""title": "Natural Language Processing",
       "description": "Implementing tokenization, stopword removal, stemming, TF-IDF feature extraction, and classification models for text data."
     },
     {
       "title": "Full-Stack Web Apps",
+      "description": "Creating robust, responsive web applications integrated with AI backends using Flask, Next.js, and modern styling solutions.""title": "Full-Stack Web Apps",
       "description": "Creating robust, responsive web applications integrated with AI backends using Flask, Next.js, and modern styling solutions."
     },
     {
       "title": "AI Chatbots & Integrations",
+      "description": "Engineering production-ready conversational agents and integrating them into messaging platforms like WhatsApp via Twilio APIs.""title": "AI Chatbots & Integrations",
       "description": "Engineering production-ready conversational agents and integrating them into messaging platforms like WhatsApp via Twilio APIs."
     },
     {
       "title": "Chrome Extensions",
+      "description": "Building AI-powered browser extensions that process webpage content and leverage cloud LLMs for on-page intelligence.""title": "Chrome Extensions",
       "description": "Building AI-powered browser extensions that process webpage content and leverage cloud LLMs for on-page intelligence."
     }
   ],
@@ -46,7 +56,13 @@
       "title": "Whatsapp Chatbot for Restaurant",
       "category": "AI & Chatbots",
       "description": "An intelligent WhatsApp assistant for Spice & Ember restaurant that answers customer queries about the menu, hours, reservations, and specials in real time. Built on a RAG pipeline using LangChain and Google Gemini, the bot retrieves answers from actual restaurant documents rather than making things up. Integrated directly with WhatsApp via Meta Cloud API so customers get instant replies without any app downloads or forms.",
-      "technologies": ["Python", "LangChain", "Google Gemini", "Meta Cloud API", "RAG"],
+      "technologies": [
+        "Python",
+        "LangChain",
+        "Google Gemini",
+        "Meta Cloud API",
+        "RAG"
+      ],
       "github": "#",
       "demo": "#"
     },
@@ -54,7 +70,15 @@
       "title": "SMS Spam Classifier Web App",
       "category": "Machine Learning",
       "description": "Built and deployed an end-to-end machine learning web app that classifies SMS messages as spam or ham in real time. Implemented NLP preprocessing (tokenization, stopword removal, stemming) and TF-IDF feature extraction. Trained a Multinomial Naive Bayes model achieving 97% accuracy and perfect precision. Deployed via Flask and Render.",
-      "technologies": ["Python", "Flask", "NLP", "Scikit-Learn", "NLTK", "TF-IDF", "Render"],
+      "technologies": [
+        "Python",
+        "Flask",
+        "NLP",
+        "Scikit-Learn",
+        "NLTK",
+        "TF-IDF",
+        "Render"
+      ],
       "github": "https://github.com/AnasKhan-12/sms-spam-classifier",
       "demo": "https://sms-spam-classifier.render.com"
     },
@@ -62,7 +86,28 @@
       "title": "RAG-Based YouTube Assistant",
       "category": "AI & LLMs",
       "description": "Developed a Chrome extension using Retrieval-Augmented Generation (RAG) to enable context-aware Q&A from webpage content. Designed a pipeline with LangChain for document processing, embeddings, and FAISS-based semantic search. Integrated Gemini APIs to generate accurate, low-hallucination responses.",
-      "technologies": ["JavaScript", "Chrome Extension", "LangChain", "Gemini API", "FAISS", "Vector DB", "RAG"],
+      "technologies": [
+        "JavaScript",
+        "Chrome Extension",
+        "LangChain",
+        "Gemini API",
+        "FAISS",
+        "Vector DB",
+        "RAG"
+      ],
+      "github": "https://github.com/AnasKhan-12/youtube-rag-assistant",
+      "demo": "#""title": "RAG-Based YouTube Assistant",
+      "category": "AI & LLMs",
+      "description": "Developed a Chrome extension using Retrieval-Augmented Generation (RAG) to enable context-aware Q&A from webpage content. Designed a pipeline with LangChain for document processing, embeddings, and FAISS-based semantic search. Integrated Gemini APIs to generate accurate, low-hallucination responses.",
+      "technologies": [
+        "JavaScript",
+        "Chrome Extension",
+        "LangChain",
+        "Gemini API",
+        "FAISS",
+        "Vector DB",
+        "RAG"
+      ],
       "github": "https://github.com/AnasKhan-12/youtube-rag-assistant",
       "demo": "#"
     },
@@ -70,7 +115,28 @@
       "title": "RAG-Powered WhatsApp Chatbot",
       "category": "AI & Chatbots",
       "description": "Engineered a production-ready RAG chatbot that processes multi-format data (PDFs, Excel, text) into a searchable knowledge base. Implemented semantic retrieval with ChromaDB, embeddings, and intent detection for accurate responses. Deployed via Twilio and Render.",
-      "technologies": ["Python", "ChromaDB", "Twilio API", "Render", "LangChain", "RAG", "Embeddings"],
+      "technologies": [
+        "Python",
+        "ChromaDB",
+        "Twilio API",
+        "Render",
+        "LangChain",
+        "RAG",
+        "Embeddings"
+      ],
+      "github": "https://github.com/AnasKhan-12/whatsapp-rag-chatbot",
+      "demo": "#""title": "RAG-Powered WhatsApp Chatbot",
+      "category": "AI & Chatbots",
+      "description": "Engineered a production-ready RAG chatbot that processes multi-format data (PDFs, Excel, text) into a searchable knowledge base. Implemented semantic retrieval with ChromaDB, embeddings, and intent detection for accurate responses. Deployed via Twilio and Render.",
+      "technologies": [
+        "Python",
+        "ChromaDB",
+        "Twilio API",
+        "Render",
+        "LangChain",
+        "RAG",
+        "Embeddings"
+      ],
       "github": "https://github.com/AnasKhan-12/whatsapp-rag-chatbot",
       "demo": "#"
     },
@@ -78,7 +144,24 @@
       "title": "Movie Recommendation System",
       "category": "Machine Learning",
       "description": "Built a content-based recommendation system that suggests movies using TF-IDF and cosine similarity on metadata. Implemented data preprocessing and feature engineering with Pandas and Scikit-learn. Designed a scalable logic to personalize recommendations.",
-      "technologies": ["Python", "Scikit-Learn", "Pandas", "TF-IDF", "Cosine Similarity"],
+      "technologies": [
+        "Python",
+        "Scikit-Learn",
+        "Pandas",
+        "TF-IDF",
+        "Cosine Similarity"
+      ],
+      "github": "https://github.com/AnasKhan-12/movie-recommendation-system",
+      "demo": "#""title": "Movie Recommendation System",
+      "category": "Machine Learning",
+      "description": "Built a content-based recommendation system that suggests movies using TF-IDF and cosine similarity on metadata. Implemented data preprocessing and feature engineering with Pandas and Scikit-learn. Designed a scalable logic to personalize recommendations.",
+      "technologies": [
+        "Python",
+        "Scikit-Learn",
+        "Pandas",
+        "TF-IDF",
+        "Cosine Similarity"
+      ],
       "github": "https://github.com/AnasKhan-12/movie-recommendation-system",
       "demo": "#"
     }
@@ -87,15 +170,21 @@
     {
       "author": "A. Rahman",
       "position": "Lead AI Researcher",
+      "text": "Ans delivered a highly accurate model and integrated it into our web systems flawlessly. His knowledge in NLP and machine learning pipelines is exceptional.""author": "A. Rahman",
+      "position": "Lead AI Researcher",
       "text": "Ans delivered a highly accurate model and integrated it into our web systems flawlessly. His knowledge in NLP and machine learning pipelines is exceptional."
     },
     {
       "author": "S. Khan",
       "position": "Product Manager, TechEdge",
+      "text": "The Chrome extension Ans built using FAISS and LangChain completely revolutionized how our team summarizes browser content. Extremely responsive developer!""author": "S. Khan",
+      "position": "Product Manager, TechEdge",
       "text": "The Chrome extension Ans built using FAISS and LangChain completely revolutionized how our team summarizes browser content. Extremely responsive developer!"
     },
     {
       "author": "M. Bilal",
+      "position": "Founder, ChatFlow",
+      "text": "Ans built a robust WhatsApp chatbot that retrieves facts directly from PDF/Excel records. Brilliant execution, very clean codebase, and Twilio setup.""author": "M. Bilal",
       "position": "Founder, ChatFlow",
       "text": "Ans built a robust WhatsApp chatbot that retrieves facts directly from PDF/Excel records. Brilliant execution, very clean codebase, and Twilio setup."
     }
@@ -104,9 +193,20 @@
     "email": "ans@gmail.com",
     "phone": "+92 320 8424534",
     "location": "Lahore, Pakistan",
+    "email": "ans@gmail.com",
+    "phone": "+92 320 8424534",
+    "location": "Lahore, Pakistan",
     "socials": [
-      { "name": "GitHub",   "href": "https://github.com/AnasKhan-12",            "active": true },
-      { "name": "LinkedIn", "href": "https://www.linkedin.com/in/ans-amanullah", "active": true }
+      {
+        "name": "GitHub",
+        "href": "https://github.com/AnasKhan-12",
+        "active": true
+      },
+      {
+        "name": "LinkedIn",
+        "href": "https://www.linkedin.com/in/ans-amanullah",
+        "active": true
+      }
     ]
   }
 }
