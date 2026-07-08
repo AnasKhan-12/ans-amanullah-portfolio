@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
     stack: "LangGraph · FastAPI · React · MCP",
     highlight: "−40% response latency via SSE streaming",
     chips: ["LangGraph", "FastAPI", "React", "MCP", "Python"],
-    github: "https://github.com",
+    github: "https://github.com/AnasKhan-12",
   },
   {
     title: "RAG-Powered WhatsApp Chatbot",
@@ -31,7 +31,7 @@ const PROJECTS: Project[] = [
     stack: "LangChain · ChromaDB · FastAPI · Gemini",
     highlight: "92% retrieval accuracy on restaurant queries",
     chips: ["LangChain", "RAG", "Gemini API", "ChromaDB", "FastAPI"],
-    github: "https://github.com",
+    github: "https://github.com/AnasKhan-12/Whatsapp-Chatbot-LangChain-version",
   },
   {
     title: "RAG YouTube Assistant Extension",
@@ -41,8 +41,7 @@ const PROJECTS: Project[] = [
     stack: "LangChain · FAISS · Gemini API · Chrome API",
     highlight: "Real-time semantic search, minimized hallucinations",
     chips: ["LangChain", "FAISS", "Gemini API", "Chrome Extension"],
-    github: "https://github.com",
-    demo: "https://github.com",
+    github: "https://github.com/AnasKhan-12/RAG-based-Youtube-Assistant-Extension",
   },
   {
     title: "Spam Classifier Web App",
@@ -52,8 +51,8 @@ const PROJECTS: Project[] = [
     stack: "Scikit-learn · NLTK · Flask · Render",
     highlight: "97% accuracy · 1.0 precision on holdout set",
     chips: ["Python", "Scikit-learn", "NLTK", "Flask", "TF-IDF"],
-    github: "https://github.com",
-    demo: "https://github.com",
+    github: "https://github.com/AnasKhan-12/SMS-Spam-Classifier",
+    demo: "https://sms-spam-classifier-a54e.onrender.com/",
   },
   {
     title: "Movie Recommendation System",
@@ -63,7 +62,7 @@ const PROJECTS: Project[] = [
     stack: "Pandas · Scikit-learn · TF-IDF · Cosine Similarity",
     highlight: "Personalized recommendations from metadata vectors",
     chips: ["Python", "Pandas", "Scikit-learn", "NLP", "TF-IDF"],
-    github: "https://github.com",
+    github: "https://github.com/AnasKhan-12/Movies-Recommendation-System",
   },
 ];
 
