@@ -43,7 +43,7 @@ export default function Stack() {
         <div className="section-head">
           <h2>Stack</h2>
         </div>
-        <div className={styles.manifest}>
+        <div className={`${styles.manifest} reveal`}>
           {STACK.map((row) => (
             <div className={styles.manifestRow} key={row.label}>
               <div className={styles.manifestLabel}>{row.label}</div>

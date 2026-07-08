@@ -71,9 +71,9 @@ export default function Work() {
     <section className="section" id="work">
       <div className="wrap">
         <div className="section-head">
-          <h2>Selected work</h2>
+          <h2>Featured Projects</h2>
         </div>
-        <div className={styles.cards}>
+        <div className={`${styles.cards} reveal-stagger`}>
           {PROJECTS.map((p) => (
             <div className={styles.card} key={p.title}>
               <div className={styles.cardTop}>

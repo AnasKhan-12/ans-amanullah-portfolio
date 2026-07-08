@@ -56,7 +56,7 @@ export default function Testimonials() {
         <div className="section-head">
           <h2>Testimonials</h2>
         </div>
-        <div className={styles.grid}>
+        <div className={`${styles.grid} reveal-stagger`}>
           {TESTIMONIALS.map((t) => (
             <div className={styles.card} key={t.name}>
               <div className={styles.cardHeader}>

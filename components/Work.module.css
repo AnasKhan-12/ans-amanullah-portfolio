@@ -9,12 +9,17 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 26px 24px;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color 0.2s ease, background 0.2s ease,
+              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s ease;
 }
 
 .card:hover {
-  border-color: var(--border-strong);
+  border-color: rgba(232, 163, 61, 0.3);
   background: var(--bg-panel-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35),
+              0 0 0 1px rgba(232, 163, 61, 0.08);
 }
 
 .cardTop {

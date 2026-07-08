@@ -1,3 +1,15 @@
+/* ── Hero entrance animation ── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero {
   position: relative;
   z-index: 2;
@@ -15,6 +27,21 @@
 .content {
   flex: 1;
   min-width: 0;
+}
+
+/* Staggered entrance for each hero child */
+.content > * {
+  animation: heroFadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.content > *:nth-child(1) { animation-delay: 0.05s; }
+.content > *:nth-child(2) { animation-delay: 0.15s; }
+.content > *:nth-child(3) { animation-delay: 0.25s; }
+.content > *:nth-child(4) { animation-delay: 0.35s; }
+.content > *:nth-child(5) { animation-delay: 0.45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .content > * { animation: none; }
 }
 
 /* ── Eyebrow ── */
@@ -146,6 +173,11 @@
 }
 
 /* ── Profile Photo ── */
+@keyframes floatPhoto {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
 .photoWrapper {
   flex-shrink: 0;
   position: relative;
@@ -154,6 +186,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: heroFadeUp 0.8s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both,
+             floatPhoto 5s 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photoWrapper { animation: none; }
 }
 
 /* Outer glowing ring */
@@ -202,6 +240,12 @@
   overflow: hidden;
   border: 2px solid var(--border-strong);
   background: var(--bg-panel);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photoFrame:hover {
+  border-color: rgba(232, 163, 61, 0.5);
+  box-shadow: 0 0 32px rgba(232, 163, 61, 0.15);
 }
 
 .photo {
@@ -210,6 +254,11 @@
   border-radius: 50%;
   transform: scale(1.4); /* ← adjust this number to zoom: 1.0 = no zoom, 1.5 = 50% zoom in */
   transform-origin: center 20%; /* ← matches object-position so face stays centred */
+  transition: transform 0.4s ease;
+}
+
+.photoFrame:hover .photo {
+  transform: scale(1.45);
 }
 
 /* Fallback initials if no photo */
