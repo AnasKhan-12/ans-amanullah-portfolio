@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
-import ScrambleText from "./ScrambleText";
 import MagneticEl from "./MagneticEl";
 
 const WORDS = ["save you 15-20 hrs/week", "save your money"];
@@ -41,10 +40,7 @@ export default function Hero() {
         <div className={styles.content}>
           <div className={styles.eyebrow}>
             <span className={styles.dot} />
-            <ScrambleText
-              text="AI ENGINEER — AGENTIC SYSTEMS · LLM INTEGRATIONS · CHATBOTS"
-              delay={200}
-            />
+            AI ENGINEER — AGENTIC SYSTEMS · LLM INTEGRATIONS · CHATBOTS
           </div>
           <h1>
             I build systems that{" "}

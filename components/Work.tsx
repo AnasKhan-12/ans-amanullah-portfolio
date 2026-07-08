@@ -80,13 +80,11 @@ export default function Work() {
           {PROJECTS.map((p) => (
             <TiltCard
               key={p.title}
-              className={`${styles.card} ${p.status === "live" ? styles.cardLive : ""}`}
+              className={styles.card}
             >
               <div className={styles.cardTop}>
                 <h3>{p.title}</h3>
-                <span className={`${styles.status} ${p.status === "live" ? styles.statusLive : ""}`}>
-                  ● {p.status}
-                </span>
+                <span className={styles.status}>● {p.status}</span>
               </div>
               <p className={styles.desc}>{p.desc}</p>
               <div className={styles.kv}>
