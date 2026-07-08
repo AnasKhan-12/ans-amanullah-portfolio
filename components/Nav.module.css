@@ -36,6 +36,7 @@
   color: var(--accent);
 }
 
+/* ── Desktop nav links ── */
 .navLinks {
   display: flex;
   align-items: center;
@@ -108,18 +109,122 @@
   transform: translateY(-1px);
 }
 
+/* ── Hamburger button ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.hamburger:hover {
+  background: rgba(240, 237, 228, 0.07);
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.hamburgerOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ── */
+.drawer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease;
+  opacity: 0;
+  background: rgba(18, 24, 27, 0.97);
+  border-top: 1px solid var(--border);
+}
+
+.drawerOpen {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.drawerLinks {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.drawerLink {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 10px 24px;
+  width: 100%;
+  text-align: center;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.drawerLink:hover {
+  color: var(--text);
+  background: rgba(240, 237, 228, 0.05);
+}
+
+.drawerBtn {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 10px 32px;
+  border-radius: 6px;
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.drawerBtn:hover {
+  background: #f0b054;
+  transform: translateY(-1px);
+}
+
+/* ── Responsive breakpoint ── */
 @media (max-width: 640px) {
+  /* Hide desktop links on mobile */
   .navLinks {
-    gap: 2px;
-  }
-
-  .navLink {
-    font-size: 12px;
-    padding: 5px 8px;
-  }
-
-  /* hide Stack on mobile */
-  .navLinks li:nth-child(3) {
     display: none;
+  }
+
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
   }
 }
