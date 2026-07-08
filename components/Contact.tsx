@@ -148,7 +148,7 @@ export default function Contact() {
               <div className={styles.socialRow}>
                 <a
                   className={styles.socialBtn}
-                  href="https://github.com/"
+                  href="https://github.com/AnasKhan-12"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -158,7 +158,7 @@ export default function Contact() {
                 </a>
                 <a
                   className={styles.socialBtn}
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/in/ans-amanullah/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
