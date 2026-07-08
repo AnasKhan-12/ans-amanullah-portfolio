@@ -5,47 +5,65 @@ interface Project {
   status: string;
   desc: string;
   task: string;
-  scale: string;
-  result: string;
+  stack: string;
+  highlight: string;
   chips: string[];
+  github: string;
+  demo?: string;
 }
 
 const PROJECTS: Project[] = [
   {
-    title: "Latency-Aware RAG Router",
-    status: "production",
-    desc: "Cut p95 response time by routing queries between a small fast model and a larger fallback based on live confidence scoring.",
-    task: "retrieval-augmented generation",
-    scale: "40k req/day, 3 model tiers",
-    result: "−48% p95 latency, no accuracy drop",
-    chips: ["Python", "vLLM", "Redis", "pgvector"],
-  },
-  {
-    title: "Eval Harness for Agent Workflows",
-    status: "production",
-    desc: "Internal framework that scores multi-step agent runs against golden traces, catching regressions before they ship.",
-    task: "automated evaluation",
-    scale: "200+ test suites, nightly CI",
-    result: "caught 30+ regressions pre-release",
-    chips: ["TypeScript", "LangGraph", "Postgres"],
-  },
-  {
-    title: "Fine-Tuned Support Copilot",
+    title: "Personal Assistant Agent",
     status: "shipped",
-    desc: "End-to-end product: fine-tuned model, retrieval layer, and a React interface support agents actually wanted to use.",
-    task: "domain-tuned assistant",
-    scale: "1.2k daily active agents",
-    result: "−35% avg handle time",
-    chips: ["React", "FastAPI", "LoRA"],
+    desc: "Agentic AI assistant using LangGraph with a ReAct loop, autonomously routing tasks across Gmail and Google Calendar via MCP connectors. FastAPI streaming backend with SSE reduced response latency by 40%.",
+    task: "agentic AI / task automation",
+    stack: "LangGraph · FastAPI · React · MCP",
+    highlight: "−40% response latency via SSE streaming",
+    chips: ["LangGraph", "FastAPI", "React", "MCP", "Python"],
+    github: "https://github.com",
   },
   {
-    title: "GPU Fleet Autoscaler",
-    status: "production",
-    desc: "Queue-depth-aware autoscaling for inference workloads, replacing a fixed-capacity setup with something that breathes.",
-    task: "inference infra",
-    scale: "40–200 GPUs, elastic",
-    result: "−31% infra cost, same SLA",
-    chips: ["Kubernetes", "Ray", "Terraform"],
+    title: "RAG-Powered WhatsApp Chatbot",
+    status: "shipped",
+    desc: "WhatsApp chatbot using LangChain, RAG, and Google Gemini API with ensemble retrieval (vector + BM25) and semantic chunking. Deployed as a FastAPI webhook on Meta Cloud API with per-user conversation memory.",
+    task: "conversational AI / RAG",
+    stack: "LangChain · ChromaDB · FastAPI · Gemini",
+    highlight: "92% retrieval accuracy on restaurant queries",
+    chips: ["LangChain", "RAG", "Gemini API", "ChromaDB", "FastAPI"],
+    github: "https://github.com",
+  },
+  {
+    title: "RAG YouTube Assistant Extension",
+    status: "shipped",
+    desc: "Chrome extension with a full document processing pipeline — chunking, sentence embeddings, and FAISS-based retrieval for real-time semantic search over YouTube transcripts, evaluated with grounding metrics.",
+    task: "retrieval-augmented generation",
+    stack: "LangChain · FAISS · Gemini API · Chrome API",
+    highlight: "Real-time semantic search, minimized hallucinations",
+    chips: ["LangChain", "FAISS", "Gemini API", "Chrome Extension"],
+    github: "https://github.com",
+    demo: "https://github.com",
+  },
+  {
+    title: "Spam Classifier Web App",
+    status: "live",
+    desc: "End-to-end ML web app for SMS spam detection with full NLP preprocessing — tokenization, stopword removal, stemming, and TF-IDF vectorization. Deployed on Render with real-time inference.",
+    task: "NLP / text classification",
+    stack: "Scikit-learn · NLTK · Flask · Render",
+    highlight: "97% accuracy · 1.0 precision on holdout set",
+    chips: ["Python", "Scikit-learn", "NLTK", "Flask", "TF-IDF"],
+    github: "https://github.com",
+    demo: "https://github.com",
+  },
+  {
+    title: "Movie Recommendation System",
+    status: "shipped",
+    desc: "Content-based filtering system leveraging cosine similarity on TF-IDF feature vectors for personalized movie recommendations. Built a clean item-feature matrix using Pandas and Scikit-learn on structured metadata.",
+    task: "recommender systems / NLP",
+    stack: "Pandas · Scikit-learn · TF-IDF · Cosine Similarity",
+    highlight: "Personalized recommendations from metadata vectors",
+    chips: ["Python", "Pandas", "Scikit-learn", "NLP", "TF-IDF"],
+    github: "https://github.com",
   },
 ];
 
@@ -55,7 +73,7 @@ export default function Work() {
       <div className="wrap">
         <div className="section-head">
           <h2>Selected work</h2>
-          <span className="tag">// model_cards.json</span>
+          <span className="tag">// projects.json</span>
         </div>
         <div className={styles.cards}>
           {PROJECTS.map((p) => (
@@ -68,10 +86,10 @@ export default function Work() {
               <div className={styles.kv}>
                 <span className={styles.k}>task</span>
                 <span className={styles.v}>{p.task}</span>
-                <span className={styles.k}>scale</span>
-                <span className={styles.v}>{p.scale}</span>
-                <span className={styles.k}>result</span>
-                <span className={styles.v}>{p.result}</span>
+                <span className={styles.k}>stack</span>
+                <span className={styles.v}>{p.stack}</span>
+                <span className={styles.k}>highlight</span>
+                <span className={styles.v}>{p.highlight}</span>
               </div>
               <div className={styles.chips}>
                 {p.chips.map((c) => (
@@ -81,8 +99,10 @@ export default function Work() {
                 ))}
               </div>
               <div className={styles.cardLinks}>
-                <a href="#">Case study</a>
-                <a href="#">Code</a>
+                <a href={p.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                {p.demo && (
+                  <a href={p.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
+                )}
               </div>
             </div>
           ))}

@@ -2,56 +2,123 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(18, 24, 27, 0.82);
-  backdrop-filter: blur(10px);
+  background: rgba(18, 24, 27, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.nav .wrap {
+.scrolled {
+  background: rgba(18, 24, 27, 0.92);
+  border-bottom-color: var(--border-strong);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 66px;
 }
 
-.logo {
+.name {
   font-family: var(--font-mono);
-  font-weight: 600;
   font-size: 15px;
+  font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--text);
-  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
 }
 
-.logo span {
+.nameAccent {
   color: var(--accent);
 }
 
 .navLinks {
   display: flex;
-  gap: 28px;
+  align-items: center;
+  gap: 6px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.navLinks a {
+.navLink {
   font-family: var(--font-mono);
   font-size: 13px;
   text-decoration: none;
   color: var(--text-muted);
-  transition: color 0.15s ease;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: color 0.15s ease, background 0.15s ease;
+  position: relative;
+  letter-spacing: 0.01em;
 }
 
-.navLinks a:hover {
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 16px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--text);
+  background: rgba(240, 237, 228, 0.05);
+}
+
+.navLink:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navLinkActive {
   color: var(--accent);
+}
+
+.navLinkActive::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Hire Me CTA button */
+.navBtn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 7px 18px;
+  border-radius: 5px;
+  margin-left: 10px;
+  transition: background 0.15s ease, transform 0.12s ease;
+  white-space: nowrap;
+}
+
+.navBtn:hover {
+  background: #f0b054;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 640px) {
   .navLinks {
-    gap: 16px;
+    gap: 2px;
   }
 
+  .navLink {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  /* hide Stack on mobile */
   .navLinks li:nth-child(3) {
     display: none;
   }
