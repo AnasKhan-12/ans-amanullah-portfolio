@@ -1,4 +1,7 @@
+"use client";
+
 import styles from "./Work.module.css";
+import TiltCard from "./TiltCard";
 
 interface Project {
   title: string;
@@ -75,10 +78,15 @@ export default function Work() {
         </div>
         <div className={`${styles.cards} reveal-stagger`}>
           {PROJECTS.map((p) => (
-            <div className={styles.card} key={p.title}>
+            <TiltCard
+              key={p.title}
+              className={`${styles.card} ${p.status === "live" ? styles.cardLive : ""}`}
+            >
               <div className={styles.cardTop}>
                 <h3>{p.title}</h3>
-                <span className={styles.status}>● {p.status}</span>
+                <span className={`${styles.status} ${p.status === "live" ? styles.statusLive : ""}`}>
+                  ● {p.status}
+                </span>
               </div>
               <p className={styles.desc}>{p.desc}</p>
               <div className={styles.kv}>
@@ -102,7 +110,7 @@ export default function Work() {
                   <a href={p.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
                 )}
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

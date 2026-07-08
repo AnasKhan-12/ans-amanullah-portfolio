@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.css";
+import ScrambleText from "./ScrambleText";
+import MagneticEl from "./MagneticEl";
 
 const WORDS = ["save you 15-20 hrs/week", "save your money"];
 
@@ -39,7 +41,10 @@ export default function Hero() {
         <div className={styles.content}>
           <div className={styles.eyebrow}>
             <span className={styles.dot} />
-            AI ENGINEER — AGENTIC SYSTEMS · LLM INTEGRATIONS · CHATBOTS
+            <ScrambleText
+              text="AI ENGINEER — AGENTIC SYSTEMS · LLM INTEGRATIONS · CHATBOTS"
+              delay={200}
+            />
           </div>
           <h1>
             I build systems that{" "}
@@ -59,12 +64,12 @@ export default function Hero() {
             <span className={styles.badge}>Full-Stack AI Products</span>
           </div>
           <div className={styles.ctaRow}>
-            <a className={`${styles.btn} ${styles.btnPrimary}`} href="#work">
+            <MagneticEl as="a" href="#work" className={`${styles.btn} ${styles.btnPrimary}`} strength={12}>
               View work →
-            </a>
-            <a className={`${styles.btn} ${styles.btnGhost}`} href="#contact">
+            </MagneticEl>
+            <MagneticEl as="a" href="#contact" className={`${styles.btn} ${styles.btnGhost}`} strength={10}>
               Get in touch
-            </a>
+            </MagneticEl>
           </div>
         </div>
 

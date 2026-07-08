@@ -12,14 +12,48 @@
   transition: border-color 0.2s ease, background 0.2s ease,
               transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   border-color: rgba(232, 163, 61, 0.3);
   background: var(--bg-panel-hover);
-  transform: translateY(-5px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35),
               0 0 0 1px rgba(232, 163, 61, 0.08);
+}
+
+/* Animated border for live projects */
+@keyframes rotateBorder {
+  from { --angle: 0deg; }
+  to   { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.cardLive {
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.cardLive::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 9px;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--angle),
+    rgba(232, 163, 61, 0.6),
+    rgba(110, 140, 160, 0.3),
+    rgba(232, 163, 61, 0.6)
+  );
+  animation: rotateBorder 4s linear infinite;
 }
 
 .cardTop {
@@ -44,6 +78,11 @@
   background: rgba(110, 140, 160, 0.15);
   color: var(--accent-2);
   white-space: nowrap;
+}
+
+.statusLive {
+  background: rgba(74, 222, 128, 0.12);
+  color: #4ade80;
 }
 
 .desc {

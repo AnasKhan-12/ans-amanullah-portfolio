@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import styles from "./Nav.module.css";
+import MagneticEl from "./MagneticEl";
 
 const NAV_LINKS = [
   { label: "Work", href: "#work" },
@@ -80,10 +81,10 @@ export default function Nav() {
               </li>
             ))}
             <li>
-              <a className={`${styles.navBtn}`} href="#contact">
-                Hire Me
-              </a>
-            </li>
+            <MagneticEl as="a" href="#contact" className={styles.navBtn} strength={8}>
+              Hire Me
+            </MagneticEl>
+          </li>
           </ul>
         </div>
       </nav>
