@@ -1,7 +1,7 @@
 .nav {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 50;
   background: rgba(18, 24, 27, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -15,6 +15,7 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
+/* ── Navbar inner row ── */
 .inner {
   display: flex;
   align-items: center;
@@ -22,6 +23,7 @@
   height: 66px;
 }
 
+/* ── Logo / Name ── */
 .name {
   font-family: var(--font-mono);
   font-size: 15px;
@@ -88,7 +90,7 @@
   transform: translateX(-50%) scaleX(1);
 }
 
-/* Hire Me CTA button */
+/* ── Hire Me CTA button ── */
 .navBtn {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -109,7 +111,7 @@
   transform: translateY(-1px);
 }
 
-/* ── Hamburger button ── */
+/* ── Hamburger button (hidden on desktop) ── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -123,6 +125,7 @@
   cursor: pointer;
   padding: 4px;
   border-radius: 6px;
+  flex-shrink: 0;
   transition: background 0.15s ease;
 }
 
@@ -140,7 +143,6 @@
   transform-origin: center;
 }
 
-/* Animate to X when open */
 .hamburgerOpen span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -152,30 +154,89 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── Mobile drawer ── */
+/* ── Backdrop overlay ── */
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+.backdropOpen {
+  background: rgba(0, 0, 0, 0.55);
+  pointer-events: all;
+}
+
+/* ── Left slide-in drawer ── */
 .drawer {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.25s ease;
-  opacity: 0;
-  background: rgba(18, 24, 27, 0.97);
-  border-top: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100dvh;
+  width: 260px;
+  background: rgba(14, 19, 22, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border);
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  display: none;
+  flex-direction: column;
+  padding: 0 0 32px;
 }
 
 .drawerOpen {
-  max-height: 400px;
-  opacity: 1;
+  transform: translateX(0);
 }
 
+/* Drawer header row */
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 66px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.drawerName {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.drawerClose {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+  line-height: 1;
+}
+
+.drawerClose:hover {
+  color: var(--text);
+  background: rgba(240, 237, 228, 0.06);
+}
+
+/* Drawer links list */
 .drawerLinks {
   list-style: none;
   margin: 0;
-  padding: 12px 0 20px;
+  padding: 16px 12px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 4px;
+  flex: 1;
 }
 
 .drawerLink {
@@ -184,10 +245,8 @@
   font-size: 15px;
   text-decoration: none;
   color: var(--text-muted);
-  padding: 10px 24px;
-  width: 100%;
-  text-align: center;
-  border-radius: 6px;
+  padding: 12px 16px;
+  border-radius: 8px;
   transition: color 0.15s ease, background 0.15s ease;
 }
 
@@ -196,9 +255,16 @@
   background: rgba(240, 237, 228, 0.05);
 }
 
+.drawerLinkActive {
+  color: var(--accent);
+  background: rgba(224, 152, 40, 0.08);
+}
+
+/* Hire Me button inside drawer */
 .drawerBtn {
-  display: inline-block;
-  margin-top: 8px;
+  display: block;
+  margin: 0 20px;
+  text-align: center;
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 600;
@@ -206,8 +272,8 @@
   text-decoration: none;
   color: var(--bg);
   background: var(--accent);
-  padding: 10px 32px;
-  border-radius: 6px;
+  padding: 12px 0;
+  border-radius: 8px;
   transition: background 0.15s ease, transform 0.12s ease;
 }
 
@@ -216,15 +282,30 @@
   transform: translateY(-1px);
 }
 
-/* ── Responsive breakpoint ── */
+/* ── Mobile breakpoint ── */
 @media (max-width: 640px) {
-  /* Hide desktop links on mobile */
+  /* On mobile: hamburger left, name right */
+  .inner {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  /* Hide desktop links */
   .navLinks {
     display: none;
   }
 
-  /* Show hamburger on mobile */
+  /* Show hamburger */
   .hamburger {
+    display: flex;
+  }
+
+  /* Show backdrop + drawer */
+  .backdrop {
+    display: block;
+  }
+
+  .drawer {
     display: flex;
   }
 }
