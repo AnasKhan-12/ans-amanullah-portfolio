@@ -19,24 +19,6 @@
   overflow: hidden;
 }
 
-/* Subtle animated gradient orbs behind content */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,163,61,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(110,140,160,0.08) 0%, transparent 60%);
-  background-size: 200% 200%;
-  animation: auroraMove 10s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero::after { animation: none; }
-}
-
 /* Two-column layout */
 .heroInner {
   display: flex;
