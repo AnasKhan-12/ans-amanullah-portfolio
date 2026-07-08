@@ -87,7 +87,6 @@ export default function Contact() {
       <div className="wrap">
         <div className="section-head">
           <h2>Contact</h2>
-          <span className="tag">// $ open --to=you</span>
         </div>
 
         <div className={styles.layout}>

@@ -55,7 +55,6 @@ export default function Testimonials() {
       <div className="wrap">
         <div className="section-head">
           <h2>Testimonials</h2>
-          <span className="tag">// client_feedback.json</span>
         </div>
         <div className={styles.grid}>
           {TESTIMONIALS.map((t) => (

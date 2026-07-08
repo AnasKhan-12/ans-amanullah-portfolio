@@ -42,7 +42,6 @@ export default function Stack() {
       <div className="wrap">
         <div className="section-head">
           <h2>Stack</h2>
-          <span className="tag">// requirements.txt</span>
         </div>
         <div className={styles.manifest}>
           {STACK.map((row) => (

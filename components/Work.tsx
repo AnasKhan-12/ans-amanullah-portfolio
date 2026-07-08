@@ -73,7 +73,6 @@ export default function Work() {
       <div className="wrap">
         <div className="section-head">
           <h2>Selected work</h2>
-          <span className="tag">// projects.json</span>
         </div>
         <div className={styles.cards}>
           {PROJECTS.map((p) => (
