@@ -1,13 +1,14 @@
 /* ── Hero entrance animation ── */
 @keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(32px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Animated aurora background ── */
+@keyframes auroraMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero {
@@ -15,6 +16,25 @@
   z-index: 2;
   padding: 100px 0 88px;
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Subtle animated gradient orbs behind content */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,163,61,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(110,140,160,0.08) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: auroraMove 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after { animation: none; }
 }
 
 /* Two-column layout */
@@ -22,6 +42,8 @@
   display: flex;
   align-items: center;
   gap: 64px;
+  position: relative;
+  z-index: 1;
 }
 
 .content {
@@ -127,6 +149,16 @@
   border-radius: 4px;
   color: var(--text-muted);
   background: var(--bg-panel);
+  transition: color 0.2s ease, border-color 0.2s ease,
+              background 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+
+.badge:hover {
+  color: var(--accent);
+  border-color: rgba(232, 163, 61, 0.4);
+  background: rgba(232, 163, 61, 0.06);
+  transform: translateY(-2px);
 }
 
 /* ── CTA ── */
@@ -173,11 +205,6 @@
 }
 
 /* ── Profile Photo ── */
-@keyframes floatPhoto {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
-}
-
 .photoWrapper {
   flex-shrink: 0;
   position: relative;
@@ -186,8 +213,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: heroFadeUp 0.8s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both,
-             floatPhoto 5s 1s ease-in-out infinite;
+  animation: heroFadeUp 0.8s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -316,4 +342,39 @@
     width: 185px;
     height: 185px;
   }
+
+  .scrollIndicator {
+    display: none;
+  }
+}
+
+/* ── Scroll indicator ── */
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50%       { transform: translateY(6px); opacity: 1; }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  animation: bounceDown 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(to bottom, transparent, var(--text-muted));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollIndicator { animation: none; }
 }

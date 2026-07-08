@@ -102,6 +102,16 @@ export default function Hero() {
         </div>
 
       </div>
+
+      {/* Scroll indicator */}
+      <div className={styles.scrollIndicator} aria-hidden="true">
+        <span className={styles.scrollLine} />
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M6 1v10M1 6l5 5 5-5" stroke="currentColor" strokeWidth="1.5"
+            strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+
     </header>
   );
 }

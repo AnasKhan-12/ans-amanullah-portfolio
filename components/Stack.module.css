@@ -39,6 +39,16 @@
   border: 1px solid var(--border);
   padding: 5px 10px;
   border-radius: 3px;
+  transition: color 0.15s ease, border-color 0.15s ease,
+              background 0.15s ease, transform 0.15s ease;
+  cursor: default;
+}
+
+.pkg:hover {
+  color: var(--accent);
+  border-color: rgba(232, 163, 61, 0.35);
+  background: rgba(232, 163, 61, 0.06);
+  transform: translateY(-1px);
 }
 
 .v {

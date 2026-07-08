@@ -4,6 +4,12 @@
   gap: 20px;
 }
 
+/* Shimmer sweep keyframe */
+@keyframes shimmerSweep {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(250%)  skewX(-15deg); }
+}
+
 .card {
   background: var(--bg-panel);
   border: 1px solid var(--border);
@@ -12,16 +18,46 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  transition: border-color 0.2s ease, background 0.2s ease,
-    transform 0.2s ease;
+  transition: border-color 0.25s ease, background 0.25s ease,
+              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s ease;
   position: relative;
   overflow: hidden;
 }
 
+/* Shimmer overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  animation: shimmerSweep 0.65s ease forwards;
+}
+
 .card:hover {
-  border-color: var(--border-strong);
+  border-color: rgba(232, 163, 61, 0.3);
   background: var(--bg-panel-hover);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(232, 163, 61, 0.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover::before { animation: none; }
 }
 
 .cardHeader {
