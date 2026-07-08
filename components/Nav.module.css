@@ -286,7 +286,7 @@
 @media (max-width: 640px) {
   /* On mobile: hamburger left, name right */
   .inner {
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
   }
 
