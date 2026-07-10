@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import styles from "./Nav.module.css";
 import MagneticEl from "./MagneticEl";
+import { navVariant } from "@/lib/animations";
 
 const NAV_LINKS = [
   { label: "Work", href: "#work" },
@@ -45,7 +47,12 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+      <motion.nav
+        className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}
+        variants={navVariant}
+        initial="hidden"
+        animate="visible"
+      >
         <div className={`wrap ${styles.inner}`}>
 
           {/* Hamburger — left on mobile */}
@@ -67,8 +74,13 @@ export default function Nav() {
 
           {/* Desktop links */}
           <ul className={styles.navLinks} role="list">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
+            {NAV_LINKS.map((link, i) => (
+              <motion.li
+                key={link.href}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.07, ease: [0.4, 0, 0.2, 1] }}
+              >
                 <Link
                   href={link.href}
                   className={`${styles.navLink} ${
@@ -78,16 +90,20 @@ export default function Nav() {
                 >
                   {link.label}
                 </Link>
-              </li>
+              </motion.li>
             ))}
-            <li>
-            <MagneticEl as="a" href="#contact" className={styles.navBtn} strength={8}>
-              Hire Me
-            </MagneticEl>
-          </li>
+            <motion.li
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 + NAV_LINKS.length * 0.07, ease: [0.4, 0, 0.2, 1] }}
+            >
+              <MagneticEl as="a" href="#contact" className={styles.navBtn} strength={8}>
+                Hire Me
+              </MagneticEl>
+            </motion.li>
           </ul>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Backdrop */}
       <div

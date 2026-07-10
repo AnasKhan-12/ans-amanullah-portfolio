@@ -1,8 +1,4 @@
-/* ── Hero entrance animation ── */
-@keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+/* ── Hero entrance animations are handled by Framer Motion ── */
 
 /* ── Animated aurora background ── */
 @keyframes auroraMove {
@@ -33,20 +29,7 @@
   min-width: 0;
 }
 
-/* Staggered entrance for each hero child */
-.content > * {
-  animation: heroFadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-.content > *:nth-child(1) { animation-delay: 0.05s; }
-.content > *:nth-child(2) { animation-delay: 0.15s; }
-.content > *:nth-child(3) { animation-delay: 0.25s; }
-.content > *:nth-child(4) { animation-delay: 0.35s; }
-.content > *:nth-child(5) { animation-delay: 0.45s; }
-
-@media (prefers-reduced-motion: reduce) {
-  .content > * { animation: none; }
-}
+/* Entrance stagger is handled by Framer Motion's heroContainer + heroChild variants */
 
 /* ── Eyebrow ── */
 .eyebrow {
@@ -195,11 +178,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: heroFadeUp 0.8s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .photoWrapper { animation: none; }
+  /* Entrance handled by Framer Motion */
 }
 
 /* Outer glowing ring */

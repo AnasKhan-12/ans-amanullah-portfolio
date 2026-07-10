@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { motion } from "framer-motion";
 import styles from "./Contact.module.css";
+import { staggerContainer, fadeUpChild, fadeUp, VIEWPORT_ONCE } from "@/lib/animations";
 
 function EmailIcon() {
   return (
@@ -85,13 +87,25 @@ export default function Contact() {
   return (
     <section className="section" id="contact">
       <div className="wrap">
-        <div className="section-head">
+        <motion.div
+          className="section-head"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           <h2>Contact</h2>
-        </div>
+        </motion.div>
 
-        <div className={styles.layout}>
+        <motion.div
+          className={styles.layout}
+          variants={staggerContainer(0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           {/* ── Left column ── */}
-          <div className={styles.left}>
+          <motion.div className={styles.left} variants={fadeUpChild}>
             <h3 className={styles.leftTitle}>
               Let&apos;s Talk About Your Project
             </h3>
@@ -100,80 +114,76 @@ export default function Contact() {
               partnership opportunities.
             </p>
 
-            <div className={styles.infoCards}>
-              <div className={styles.infoCard}>
-                <span className={styles.infoIcon}>
-                  <EmailIcon />
-                </span>
-                <div>
-                  <div className={styles.infoLabel}>EMAIL</div>
-                  <a
-                    className={styles.infoValue}
-                    href="mailto:ansamanullah@yahoo.com"
-                  >
-                    ansamanullah@yahoo.com
-                  </a>
-                </div>
-              </div>
+            <motion.div
+              className={styles.infoCards}
+              variants={staggerContainer(0.1)}
+            >
+              {[
+                { icon: <EmailIcon />, label: "EMAIL", value: "ansamanullah@yahoo.com", href: "mailto:ansamanullah@yahoo.com" },
+                { icon: <PhoneIcon />, label: "PHONE", value: "+92 320 8424534", href: "tel:+923208424534" },
+                { icon: <LocationIcon />, label: "LOCATION", value: "Lahore, Pakistan", href: undefined },
+              ].map((item) => (
+                <motion.div
+                  className={styles.infoCard}
+                  key={item.label}
+                  variants={fadeUpChild}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                >
+                  <span className={styles.infoIcon}>{item.icon}</span>
+                  <div>
+                    <div className={styles.infoLabel}>{item.label}</div>
+                    {item.href ? (
+                      <a className={styles.infoValue} href={item.href}>{item.value}</a>
+                    ) : (
+                      <span className={styles.infoValue}>{item.value}</span>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
 
-              <div className={styles.infoCard}>
-                <span className={styles.infoIcon}>
-                  <PhoneIcon />
-                </span>
-                <div>
-                  <div className={styles.infoLabel}>PHONE</div>
-                  <a
-                    className={styles.infoValue}
-                    href="tel:+923208424534"
-                  >
-                    +92 320 8424534
-                  </a>
-                </div>
-              </div>
-
-              <div className={styles.infoCard}>
-                <span className={styles.infoIcon}>
-                  <LocationIcon />
-                </span>
-                <div>
-                  <div className={styles.infoLabel}>LOCATION</div>
-                  <span className={styles.infoValue}>Lahore, Pakistan</span>
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.socialSection}>
+            <motion.div className={styles.socialSection} variants={fadeUpChild}>
               <div className={styles.socialLabel}>FIND ME ONLINE</div>
               <div className={styles.socialRow}>
-                <a
+                <motion.a
                   className={styles.socialBtn}
                   href="https://github.com/AnasKhan-12"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
+                  whileHover={{ scale: 1.05, rotate: 3, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <GitHubIcon />
                   GitHub
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   className={styles.socialBtn}
                   href="https://www.linkedin.com/in/ans-amanullah/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
+                  whileHover={{ scale: 1.05, rotate: -3, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <LinkedInIcon />
                   LinkedIn
-                </a>
+                </motion.a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* ── Right column: form ── */}
-          <div className={styles.right}>
+          <motion.div className={styles.right} variants={fadeUpChild}>
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
-              <div className={styles.formRow}>
-                <div className={styles.fieldGroup}>
+              <motion.div
+                className={styles.formRow}
+                variants={staggerContainer(0.1)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_ONCE}
+              >
+                <motion.div className={styles.fieldGroup} variants={fadeUpChild}>
                   <label className={styles.label} htmlFor="contact-name">
                     NAME
                   </label>
@@ -187,8 +197,8 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                   />
-                </div>
-                <div className={styles.fieldGroup}>
+                </motion.div>
+                <motion.div className={styles.fieldGroup} variants={fadeUpChild}>
                   <label className={styles.label} htmlFor="contact-email">
                     EMAIL
                   </label>
@@ -202,10 +212,16 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className={styles.fieldGroup}>
+              <motion.div
+                className={styles.fieldGroup}
+                variants={fadeUpChild}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_ONCE}
+              >
                 <label className={styles.label} htmlFor="contact-subject">
                   SUBJECT
                 </label>
@@ -218,9 +234,15 @@ export default function Contact() {
                   value={form.subject}
                   onChange={handleChange}
                 />
-              </div>
+              </motion.div>
 
-              <div className={styles.fieldGroup}>
+              <motion.div
+                className={styles.fieldGroup}
+                variants={fadeUpChild}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_ONCE}
+              >
                 <label className={styles.label} htmlFor="contact-message">
                   MESSAGE
                 </label>
@@ -234,21 +256,27 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                 />
-              </div>
+              </motion.div>
 
-              <button
+              <motion.button
                 className={styles.submitBtn}
                 type="submit"
+                variants={fadeUpChild}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_ONCE}
+                whileHover={{ scale: 1.03, transition: { duration: 0.15 } }}
+                whileTap={{ scale: 0.97 }}
               >
                 {sent ? "Message Sent ✓" : (
                   <>
                     Send Message <SendIcon />
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

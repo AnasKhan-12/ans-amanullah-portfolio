@@ -1,16 +1,15 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
 import Testimonials from "@/components/Testimonials";
 import Stack from "@/components/Stack";
 import Contact from "@/components/Contact";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { fadeUp, VIEWPORT_ONCE } from "@/lib/animations";
 
 export default function Home() {
-  useScrollReveal();
-
   return (
     <>
       <Nav />
@@ -21,10 +20,15 @@ export default function Home() {
         <Stack />
         <Contact />
       </main>
-      <footer>
+      <motion.footer
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={VIEWPORT_ONCE}
+      >
         built by hand, not a template — &copy;{" "}
         {new Date().getFullYear()} Ans
-      </footer>
+      </motion.footer>
     </>
   );
 }

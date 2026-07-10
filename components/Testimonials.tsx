@@ -1,4 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
 import styles from "./Testimonials.module.css";
+import { staggerContainer, cardVariant, fadeUp, VIEWPORT_ONCE } from "@/lib/animations";
 
 interface Testimonial {
   quote: string;
@@ -53,12 +57,30 @@ export default function Testimonials() {
   return (
     <section className="section" id="testimonials">
       <div className="wrap">
-        <div className="section-head">
+        <motion.div
+          className="section-head"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           <h2>Testimonials</h2>
-        </div>
-        <div className={`${styles.grid} reveal-stagger`}>
+        </motion.div>
+
+        <motion.div
+          className={styles.grid}
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           {TESTIMONIALS.map((t) => (
-            <div className={styles.card} key={t.name}>
+            <motion.div
+              className={styles.card}
+              key={t.name}
+              variants={cardVariant}
+              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }}
+            >
               <div className={styles.cardHeader}>
                 <StarRating />
                 <span className={styles.quoteMark}>&ldquo;</span>
@@ -71,9 +93,9 @@ export default function Testimonials() {
                   <span className={styles.reviewerRole}>{t.role}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,7 +1,14 @@
 "use client";
 
+import { motion } from "framer-motion";
 import styles from "./Work.module.css";
 import TiltCard from "./TiltCard";
+import {
+  staggerContainer,
+  cardVariant,
+  fadeUp,
+  VIEWPORT_ONCE,
+} from "@/lib/animations";
 
 interface Project {
   title: string;
@@ -73,44 +80,60 @@ export default function Work() {
   return (
     <section className="section" id="work">
       <div className="wrap">
-        <div className="section-head">
+        <motion.div
+          className="section-head"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           <h2>Featured Projects</h2>
-        </div>
-        <div className={`${styles.cards} reveal-stagger`}>
+        </motion.div>
+
+        <motion.div
+          className={styles.cards}
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           {PROJECTS.map((p) => (
-            <TiltCard
+            <motion.div
               key={p.title}
-              className={styles.card}
+              variants={cardVariant}
+              whileHover={{ y: -8, transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] } }}
             >
-              <div className={styles.cardTop}>
-                <h3>{p.title}</h3>
-                <span className={styles.status}>● {p.status}</span>
-              </div>
-              <p className={styles.desc}>{p.desc}</p>
-              <div className={styles.kv}>
-                <span className={styles.k}>task</span>
-                <span className={styles.v}>{p.task}</span>
-                <span className={styles.k}>stack</span>
-                <span className={styles.v}>{p.stack}</span>
-                <span className={styles.k}>highlight</span>
-                <span className={styles.v}>{p.highlight}</span>
-              </div>
-              <div className={styles.chips}>
-                {p.chips.map((c) => (
-                  <span className={styles.chip} key={c}>
-                    {c}
-                  </span>
-                ))}
-              </div>
-              <div className={styles.cardLinks}>
-                <a href={p.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                {p.demo && (
-                  <a href={p.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
-                )}
-              </div>
-            </TiltCard>
+              <TiltCard className={styles.card}>
+                <div className={styles.cardTop}>
+                  <h3>{p.title}</h3>
+                  <span className={styles.status}>● {p.status}</span>
+                </div>
+                <p className={styles.desc}>{p.desc}</p>
+                <div className={styles.kv}>
+                  <span className={styles.k}>task</span>
+                  <span className={styles.v}>{p.task}</span>
+                  <span className={styles.k}>stack</span>
+                  <span className={styles.v}>{p.stack}</span>
+                  <span className={styles.k}>highlight</span>
+                  <span className={styles.v}>{p.highlight}</span>
+                </div>
+                <div className={styles.chips}>
+                  {p.chips.map((c) => (
+                    <span className={styles.chip} key={c}>
+                      {c}
+                    </span>
+                  ))}
+                </div>
+                <div className={styles.cardLinks}>
+                  <a href={p.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+                  {p.demo && (
+                    <a href={p.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
+                  )}
+                </div>
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
 import styles from "./Stack.module.css";
+import { staggerContainer, fadeUpChild, fadeUp, VIEWPORT_ONCE } from "@/lib/animations";
 
 const STACK = [
   {
@@ -40,26 +44,55 @@ export default function Stack() {
   return (
     <section className="section" id="stack">
       <div className="wrap">
-        <div className="section-head">
+        <motion.div
+          className="section-head"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           <h2>Stack</h2>
-        </div>
-        <div className={`${styles.manifest} reveal`}>
+        </motion.div>
+
+        <motion.div
+          className={styles.manifest}
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+        >
           {STACK.map((row) => (
-            <div className={styles.manifestRow} key={row.label}>
+            <motion.div
+              className={styles.manifestRow}
+              key={row.label}
+              variants={fadeUpChild}
+            >
               <div className={styles.manifestLabel}>{row.label}</div>
-              <div className={styles.manifestItems}>
+              <motion.div
+                className={styles.manifestItems}
+                variants={staggerContainer(0.05)}
+              >
                 {row.items.map((item) => (
-                  <span className={styles.pkg} key={item.name}>
+                  <motion.span
+                    className={styles.pkg}
+                    key={item.name}
+                    variants={fadeUpChild}
+                    whileHover={{
+                      y: -4,
+                      scale: 1.05,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
                     {item.name}
                     {item.version && (
                       <span className={styles.v}> {item.version}</span>
                     )}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
