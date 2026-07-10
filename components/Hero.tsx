@@ -7,13 +7,13 @@ import styles from "./Hero.module.css";
 import MagneticEl from "./MagneticEl";
 import { heroContainer, heroChild, scaleIn } from "@/lib/animations";
 
-const WORDS = ["save you 15-20 hrs/week", "save your money"];
+const WORDS = ["save your time", "save your money"];
 
 // Typewriter timings (ms)
-const TYPE_SPEED   = 55;   // ms per character typed
+const TYPE_SPEED = 55;   // ms per character typed
 const DELETE_SPEED = 35;   // ms per character deleted
-const HOLD_DELAY   = 1600; // pause after fully typed
-const NEXT_DELAY   = 400;  // pause after fully deleted before next word
+const HOLD_DELAY = 1600; // pause after fully typed
+const NEXT_DELAY = 400;  // pause after fully deleted before next word
 
 export default function Hero() {
   const [displayed, setDisplayed] = useState(WORDS[0]);
@@ -33,8 +33,8 @@ export default function Hero() {
       return () => clearInterval(id);
     }
 
-    let wordIdx   = 0;
-    let charIdx   = WORDS[0].length; // start fully typed
+    let wordIdx = 0;
+    let charIdx = WORDS[0].length; // start fully typed
     let isDeleting = false;
     let timerId: ReturnType<typeof setTimeout>;
 
